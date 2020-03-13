@@ -27,6 +27,10 @@ it("fetches and displays data", async () => {
     );
 
     expect(playerElement).toBeTruthy();
+    // Expect player name, country, and searches to be on the element
+    expect(playerElement.textContent).toMatch(new RegExp(player.name));
+    expect(playerElement.textContent).toMatch(new RegExp(player.country));
+    expect(playerElement.textContent).toMatch(new RegExp(player.searches));
   }
 
   expect(axiosMock.get).toHaveBeenCalledTimes(1);
