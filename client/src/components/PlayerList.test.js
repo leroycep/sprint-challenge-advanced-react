@@ -21,10 +21,13 @@ it("fetches and displays data", async () => {
 
   const { getByText } = render(<PlayerList />);
 
-  const playerElement = await waitForElement(() =>
-    getByText(new RegExp(playerList[0].name))
-  );
+  for (let player of playerList) {
+    const playerElement = await waitForElement(() =>
+      getByText(new RegExp(player.name))
+    );
 
-  expect(playerElement).toBeTruthy();
+    expect(playerElement).toBeTruthy();
+  }
+
   expect(axiosMock.get).toHaveBeenCalledTimes(1);
 });
