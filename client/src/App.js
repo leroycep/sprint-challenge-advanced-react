@@ -11,8 +11,8 @@ function App() {
       <label>
         <input
           type="checkbox"
-          onClick={() => setDarkMode(!darkMode)}
-          checked={darkMode}
+          onChange={ev => setDarkMode(!darkMode)}
+          checked={!!darkMode}
         />{" "}
         Dark Mode
       </label>
